@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Free WhatsApp Link Generator - Create click-to-chat links for any country with custom message & QR code. No sign-up required. Generate wa.me links instantly.">
+  <meta name="keywords" content="WhatsApp link generator, WhatsApp click to chat, wa.me link, WhatsApp QR code, WhatsApp message link, WhatsApp direct message, WhatsApp without saving number, WhatsApp link shortener, WhatsApp chat link, free WhatsApp tools">
+  <meta name="author" content="WhatsTools">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Free WhatsApp Link Generator | No Sign-Up | All Countries">
+  <meta property="og:description" content="Generate WhatsApp chat links with prefilled messages and QR codes. Works for all countries. Instant, free, and easy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://whatslinkgen.com">
+  <meta property="og:image" content="https://whatslinkgen.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WhatsApp Link Generator - Free & Instant">
+  <meta name="twitter:description" content="Create WhatsApp click-to-chat links with messages & QR codes. Works worldwide.">
+  <link rel="canonical" href="https://whatslinkgen.com">
+  <title>Free WhatsApp Link Generator | Create Chat Links & QR for All Countries</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f7fb;
+      --surface: rgba(255,255,255,0.7);
+      --card: rgba(255,255,255,0.8);
+      --primary: #25D366;
+      --primary-dark: #1da851;
+      --text: #0f172a;
+      --text-light: #475569;
+      --border: rgba(0,0,0,0.06);
+      --shadow: 0 25px 45px rgba(0,0,0,0.08);
+      --backdrop: blur(22px);
+      --input-bg: rgba(255,255,255,0.85);
+      --hover: rgba(37,211,102,0.08);
+      --toast-bg: #1e293b;
+      --footer-bg: #f0f4f8;
+    }
+
+    body.dark {
+      --bg: #0b1424;
+      --surface: rgba(15,23,42,0.7);
+      --card: rgba(30,41,59,0.75);
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --border: rgba(255,255,255,0.06);
+      --shadow: 0 25px 45px rgba(0,0,0,0.6);
+      --input-bg: rgba(30,41,59,0.85);
+      --hover: rgba(37,211,102,0.12);
+      --toast-bg: #334155;
+      --footer-bg: #0f172a;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.2s;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .site-header {
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface);
+    }
+
+    body.dark .site-header {
+      background: rgba(15,23,42,0.7);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #25D366;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #25D366;
+    }
+
+    .theme-toggle {
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 3rem;
+      padding: 0.45rem 0.75rem;
+      cursor: pointer;
+      font-size: 1.3rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero-section h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: -0.6px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.6rem;
+    }
+
+    body.dark .hero-section h1 {
+      background: linear-gradient(to right, #f1f5f9, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-section p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .glass-card {
+      background: var(--card);
+      backdrop-filter: var(--backdrop);
+      -webkit-backdrop-filter: var(--backdrop);
+      border-radius: 2.5rem;
+      padding: 2.2rem 2rem 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.3);
+      margin-bottom: 2rem;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+      align-items: center;
+    }
+
+    .country-select {
+      flex: 0 0 150px;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 2.5rem;
+      padding: 0.9rem 1rem;
+      font-weight: 500;
+      color: var(--text);
+      backdrop-filter: blur(12px);
+      outline: none;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23475569"><path d="M6 9l6 6 6-6"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+
+    .phone-input {
+      flex: 1;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 2.5rem;
+      padding: 0.9rem 1.3rem;
+      font-size: 1rem;
+      color: var(--text);
+      backdrop-filter: blur(12px);
+      outline: none;
+    }
+
+    .message-textarea {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      padding: 1rem 1.3rem;
+      font-size: 0.95rem;
+      resize: vertical;
+      min-height: 80px;
+      color: var(--text);
+      backdrop-filter: blur(12px);
+      outline: none;
+      margin-bottom: 0.3rem;
+    }
+
+    .char-counter {
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 0.8rem 0 1.2rem;
+    }
+
+    .btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 2.8rem;
+      padding: 0.8rem 1.9rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: 0.2s;
+      box-shadow: 0 12px 20px rgba(37,211,102,0.3);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn:hover {
+      background: #1fb654;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #25D366;
+      color: #25D366;
+      box-shadow: none;
+    }
+
+    .btn-reset {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid var(--border);
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    .generated-link-box {
+      background: var(--input-bg);
+      border-radius: 2.5rem;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 1.2rem 0;
+      border: 1px solid var(--border);
+      word-break: break-all;
+    }
+
+    .link-text {
+      flex: 1;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .qrcode-section {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    #qrcode {
+      background: white;
+      padding: 0.8rem;
+      border-radius: 1.8rem;
+    }
+
+    .history-panel {
+      margin-top: 1.8rem;
+    }
+
+    .history-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+
+    .history-item {
+      background: var(--input-bg);
+      border-radius: 2rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .site-footer {
+      background: var(--footer-bg);
+      padding: 2rem 2rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-light);
+    }
+
+    .ad-placeholder {
+      background: rgba(37,211,102,0.05);
+      border: 1px dashed #25D366;
+      border-radius: 1.5rem;
+      padding: 1.2rem;
+      margin: 1.8rem 0;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    .toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .toast {
+      background: var(--toast-bg);
+      color: white;
+      padding: 0.9rem 1.6rem;
+      border-radius: 3rem;
+      animation: slideUp 0.3s;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .country-select { flex: 0 0 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="#" class="logo">💬 <span>Whats</span>LinkGen</a>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">FAQ</a>
+      <div class="theme-toggle" id="themeToggle" aria-label="Dark mode"><span id="themeIcon">🌙</span></div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="hero-section">
+        <h1>WhatsApp Link Generator</h1>
+        <p>Create click-to-chat links for any country. Add a custom message & QR code. No registration, completely free.</p>
+      </section>
+
+      <div class="glass-card">
+        <div class="row">
+          <select id="countryCode" class="country-select" aria-label="Country code">
+            <option value="93">🇦🇫 +93</option><option value="355">🇦🇱 +355</option><option value="213">🇩🇿 +213</option>
+            <option value="54">🇦🇷 +54</option><option value="61">🇦🇺 +61</option><option value="43">🇦🇹 +43</option>
+            <option value="973">🇧🇭 +973</option><option value="32">🇧🇪 +32</option><option value="55">🇧🇷 +55</option>
+            <option value="1">🇨🇦 +1</option><option value="56">🇨🇱 +56</option><option value="86">🇨🇳 +86</option>
+            <option value="57">🇨🇴 +57</option><option value="385">🇭🇷 +385</option><option value="420">🇨🇿 +420</option>
+            <option value="45">🇩🇰 +45</option><option value="20">🇪🇬 +20</option><option value="358">🇫🇮 +358</option>
+            <option value="33">🇫🇷 +33</option><option value="49">🇩🇪 +49</option><option value="30">🇬🇷 +30</option>
+            <option value="852">🇭🇰 +852</option><option value="36">🇭🇺 +36</option><option value="91" selected>🇮🇳 +91</option>
+            <option value="62">🇮🇩 +62</option><option value="353">🇮🇪 +353</option><option value="972">🇮🇱 +972</option>
+            <option value="39">🇮🇹 +39</option><option value="81">🇯🇵 +81</option><option value="962">🇯🇴 +962</option>
+            <option value="254">🇰🇪 +254</option><option value="965">🇰🇼 +965</option><option value="60">🇲🇾 +60</option>
+            <option value="52">🇲🇽 +52</option><option value="31">🇳🇱 +31</option><option value="64">🇳🇿 +64</option>
+            <option value="234">🇳🇬 +234</option><option value="47">🇳🇴 +47</option><option value="968">🇴🇲 +968</option>
+            <option value="92">🇵🇰 +92</option><option value="51">🇵🇪 +51</option><option value="63">🇵🇭 +63</option>
+            <option value="48">🇵🇱 +48</option><option value="351">🇵🇹 +351</option><option value="974">🇶🇦 +974</option>
+            <option value="40">🇷🇴 +40</option><option value="7">🇷🇺 +7</option><option value="966">🇸🇦 +966</option>
+            <option value="65">🇸🇬 +65</option><option value="27">🇿🇦 +27</option><option value="82">🇰🇷 +82</option>
+            <option value="34">🇪🇸 +34</option><option value="94">🇱🇰 +94</option><option value="46">🇸🇪 +46</option>
+            <option value="41">🇨🇭 +41</option><option value="66">🇹🇭 +66</option><option value="90">🇹🇷 +90</option>
+            <option value="971">🇦🇪 +971</option><option value="44">🇬🇧 +44</option><option value="1">🇺🇸 +1</option>
+            <option value="58">🇻🇪 +58</option><option value="84">🇻🇳 +84</option>
+          </select>
+          <input type="tel" id="phoneNumber" class="phone-input" placeholder="Phone number" autocomplete="off">
+        </div>
+        <textarea id="message" class="message-textarea" placeholder="Your message (optional)" maxlength="500"></textarea>
+        <div class="char-counter"><span id="charCount">0</span>/500</div>
+
+        <div class="btn-group">
+          <button id="generateBtn" class="btn">✨ Generate Link</button>
+          <button id="resetBtn" class="btn btn-reset">↺ Reset</button>
+        </div>
+
+        <div id="resultArea" style="display: none;">
+          <div class="generated-link-box">
+            <a id="generatedLink" href="#" target="_blank" class="link-text"></a>
+          </div>
+          <div class="btn-group">
+            <button id="copyBtn" class="btn btn-outline">📋 Copy</button>
+            <button id="openWhatsAppBtn" class="btn">💬 Open Chat</button>
+            <button id="downloadQrBtn" class="btn btn-outline">⬇️ QR</button>
+          </div>
+          <div class="qrcode-section"><div id="qrcode"></div></div>
+        </div>
+
+        <div class="ad-placeholder">
+          📢 Google Ad Manager Banner (728x90) - Your Ad Here
+        </div>
+
+        <div class="history-panel">
+          <div style="font-weight:600; margin-bottom:0.5rem;">📚 Recent Links</div>
+          <div id="historyList" class="history-list"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+    </div>
+    <p>© 2025 WhatsLinkGen - Free WhatsApp Link Generator Tool. Not affiliated with WhatsApp.</p>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    (function() {
+      const countrySelect = document.getElementById('countryCode');
+      const phoneInput = document.getElementById('phoneNumber');
+      const messageTextarea = document.getElementById('message');
+      const charCountSpan = document.getElementById('charCount');
+      const generateBtn = document.getElementById('generateBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const resultArea = document.getElementById('resultArea');
+      const generatedLink = document.getElementById('generatedLink');
+      const copyBtn = document.getElementById('copyBtn');
+      const openWhatsAppBtn = document.getElementById('openWhatsAppBtn');
+      const downloadQrBtn = document.getElementById('downloadQrBtn');
+      const qrcodeDiv = document.getElementById('qrcode');
+      const historyListDiv = document.getElementById('historyList');
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const toastContainer = document.getElementById('toastContainer');
+
+      let currentUrl = '';
+      const MAX_HISTORY = 8;
+
+      function showToast(m) {
+        const t = document.createElement('div'); t.className='toast'; t.textContent=m;
+        toastContainer.appendChild(t); setTimeout(()=>t.remove(),2800);
+      }
+
+      function sanitize(p) { return p.replace(/[\s\-\(\)\.]/g,''); }
+
+      function buildUrl() {
+        const code = countrySelect.value;
+        const phone = sanitize(phoneInput.value.trim());
+        if(!phone || phone.length<4) return '';
+        let url = `https://wa.me/${code}${phone}`;
+        const msg = messageTextarea.value.trim();
+        if(msg) url += `?text=${encodeURIComponent(msg)}`;
+        return url;
+      }
+
+      function drawQR(text, container) {
+        container.innerHTML = '';
+        if(!text) return;
+        const size=170, canvas=document.createElement('canvas');
+        canvas.width=size; canvas.height=size;
+        const ctx=canvas.getContext('2d'), mod=21, ms=size/mod;
+        ctx.fillStyle='white'; ctx.fillRect(0,0,size,size);
+        let hash=0; for(let i=0;i<text.length;i++) hash=((hash<<5)-hash)+text.charCodeAt(i);
+        const seed=Math.abs(hash);
+        const rand=(x,y)=>{let h=seed+x*374761393+y*668265263;h=(h^(h>>13))*1274126177;return(h^(h>>16))%100;};
+        function finder(sx,sy){ctx.fillStyle='#000';for(let i=0;i<7;i++)for(let j=0;j<7;j++)if(i===0||i===6||j===0||j===6||(i>=2&&i<=4&&j>=2&&j<=4))ctx.fillRect((sx+i)*ms,(sy+j)*ms,ms,ms);}
+        finder(0,0);finder(14,0);finder(0,14);
+        for(let x=0;x<mod;x++)for(let y=0;y<mod;y++){if((x<7&&y<7)||(x>13&&y<7)||(x<7&&y>13))continue;ctx.fillStyle=rand(x,y)>48?'#000':'#fff';ctx.fillRect(x*ms,y*ms,ms,ms);}
+        ctx.fillStyle='#25D366';ctx.fillRect(7*ms,7*ms,7*ms,7*ms);ctx.fillStyle='white';ctx.font='bold 24px Inter';ctx.fillText('WA',7.5*ms,12.3*ms);
+        container.appendChild(canvas); container.dataset.qrData=canvas.toDataURL('image/png');
+      }
+
+      function loadHistory(){try{return JSON.parse(localStorage.getItem('waProHistory'))||[];}catch{return[];}}
+      function saveHistory(a){localStorage.setItem('waProHistory',JSON.stringify(a.slice(0,MAX_HISTORY)));}
+      function addHistory(url){if(!url)return;let h=loadHistory().filter(i=>i.url!==url);h.unshift({url,date:Date.now()});saveHistory(h);renderHistory();}
+      function renderHistory(){
+        const h=loadHistory(); historyListDiv.innerHTML=h.length?'':'<span style="color:var(--text-light);font-size:0.8rem;">No links yet</span>';
+        h.forEach(i=>{const d=document.createElement('div');d.className='history-item';d.textContent=i.url.length>38?i.url.slice(0,38)+'…':i.url;d.onclick=()=>{generatedLink.href=i.url;generatedLink.textContent=i.url;currentUrl=i.url;resultArea.style.display='block';drawQR(i.url,qrcodeDiv);};historyListDiv.appendChild(d);});
+      }
+
+      generateBtn.onclick=()=>{
+        const url=buildUrl(); if(!url) return showToast('Enter valid phone number');
+        currentUrl=url; generatedLink.href=url; generatedLink.textContent=url; resultArea.style.display='block';
+        drawQR(url,qrcodeDiv); addHistory(url); showToast('Link generated!');
+      };
+      resetBtn.onclick=()=>{phoneInput.value='';messageTextarea.value='';charCountSpan.textContent='0';resultArea.style.display='none';currentUrl='';qrcodeDiv.innerHTML='';showToast('Reset');};
+      messageTextarea.oninput=e=>charCountSpan.textContent=e.target.value.length;
+      copyBtn.onclick=()=>{if(!currentUrl)return showToast('Nothing to copy');navigator.clipboard.writeText(currentUrl).then(()=>showToast('Copied!'));};
+      openWhatsAppBtn.onclick=()=>{if(!currentUrl)return showToast('Generate link first');window.open(currentUrl,'_blank');};
+      downloadQrBtn.onclick=()=>{const d=qrcodeDiv.dataset.qrData;if(!d)return showToast('No QR');const a=document.createElement('a');a.href=d;a.download='whatsapp-qr.png';a.click();showToast('QR downloaded');};
+
+      function setTheme(dark){document.body.classList.toggle('dark',dark);themeIcon.textContent=dark?'☀️':'🌙';localStorage.setItem('waTheme',dark?'dark':'light');}
+      themeToggle.onclick=()=>setTheme(!document.body.classList.contains('dark'));
+      const saved=localStorage.getItem('waTheme');
+      if(saved==='dark') setTheme(true); else if(saved==='light') setTheme(false); else setTheme(window.matchMedia('(prefers-color-scheme:dark)').matches);
+      renderHistory();
+    })();
+  </script>
+</body>
+</html>
